@@ -19,6 +19,7 @@ class GameTest < ActiveSupport::TestCase
     assert_equal(player_3.name, leaderboard[2][:player])
     assert_equal(2, leaderboard[0][:score])
     assert_equal(3, leaderboard.length)
+
   end
 
 end
