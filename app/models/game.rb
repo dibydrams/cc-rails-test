@@ -1,9 +1,14 @@
 class Game < ActiveRecord::Base
   def self.leaderboard
-    [
-      {:player => "Peach", :score => 2},
-      {:player => "Mario"},
-      {:player => "Luigi"}
-    ]
+    leaderboard = []
+    Player.all.each do |player|
+      leaderboard <<
+      {
+        :player => player.name,
+        :score => Game.where(winner_id: player.id).count
+      }
+    end
+
+    leaderboard
   end
 end
