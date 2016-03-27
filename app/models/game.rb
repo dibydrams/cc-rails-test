@@ -9,6 +9,9 @@ class Game < ActiveRecord::Base
       }
     end
 
+    leaderboard = leaderboard.sort { |a,b| b[:score] <=> a[:score] }[0,10]
+
     leaderboard
+
   end
 end
